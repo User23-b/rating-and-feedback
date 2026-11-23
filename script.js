@@ -1,17 +1,17 @@
-// QR code (replace URL with your published website URL)
+// QR code generator
 let websiteURL = window.location.href;
 
 document.getElementById("qrImage").src =
     "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
     + encodeURIComponent(websiteURL);
 
-// Submit evaluation
+// Submit evaluation with a popup alert
 document.getElementById("evaluationForm")
 .addEventListener("submit", function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevents the page from refreshing
 
-    document.getElementById("result").innerHTML =
-        "Thank you! Your evaluation has been submitted.";
+    // This makes the pop-up notification appear
+    alert("Thank you! Your evaluation has been submitted.");
 
-    this.reset();
+    this.reset(); // Clears the form fields
 });
