@@ -2,6 +2,8 @@ body {
     font-family: Arial, sans-serif;
     background: #eaf2f8;
     padding: 20px;
+    position: relative;
+    min-height: 100vh;
 }
 
 .container {
@@ -38,6 +40,36 @@ button {
     cursor: pointer;
 }
 
+/* Previous Evaluations Box (Bottom Left) */
+.history-panel {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 250px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.history-panel h3 {
+    font-size: 15px;
+    margin-top: 0;
+    color: #1565c0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.history-panel ul {
+    padding-left: 15px;
+    margin: 5px 0 0 0;
+    color: #555;
+}
+
 /* Toast Notification Styling (Top Center) */
 .toast {
     visibility: hidden;
@@ -50,8 +82,8 @@ button {
     position: fixed;
     z-index: 1000;
     left: 50%;
-    top: 30px; /* Positioned 30px from the top */
-    transform: translateX(-50%) translateY(-20px); /* Starts slightly higher for smooth slide-down */
+    top: 30px;
+    transform: translateX(-50%) translateY(-20px);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     font-size: 16px;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s;
@@ -61,5 +93,5 @@ button {
 .toast.show {
     visibility: visible;
     opacity: 1;
-    transform: translateX(-50%) translateY(0); /* Slides into final position */
+    transform: translateX(-50%) translateY(0);
 }
