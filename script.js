@@ -1,17 +1,18 @@
-// QR code generator
-let websiteURL = window.location.href;
-
-document.getElementById("qrImage").src =
-    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
-    + encodeURIComponent(websiteURL);
-
-// Submit evaluation with a popup alert
+// Submit evaluation and trigger toast popup
 document.getElementById("evaluationForm")
 .addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevents the page from refreshing
+    event.preventDefault();
 
-    // This makes the pop-up notification appear
-    alert("Thank you! Your evaluation has been submitted.");
+    let toast = document.getElementById("toast");
+    
+    // Add the "show" class to make the toast fade in
+    toast.className = "toast show";
 
-    this.reset(); // Clears the form fields
+    // After 3 seconds, remove the "show" class so it fades out
+    setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
+
+    // Reset the form fields
+    this.reset();
 });
